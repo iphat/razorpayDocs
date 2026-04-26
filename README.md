@@ -9,9 +9,10 @@ step1 -
     npm i razorpay
 
 step2-
+prototype credentials
 
-RAZORPAY_KEY_ID
-RAZORPAY_KEY_SECRET
+    RAZORPAY_KEY_ID=test_123ejkwfsnmkl
+    RAZORPAY_KEY_SECRET=test_secret_kkknkkml
 
 copy these two credentials from razorpay
 
