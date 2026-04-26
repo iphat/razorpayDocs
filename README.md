@@ -83,3 +83,46 @@ controller.js
      
      const router = express.Router();
      router.post("/payment/create/order", authenticateUser, createOrderController)
+
+
+
+
+
+ FRONTEND -
+
+ step1-
+ Frontend > src > cart > state > cart.api.js
+ 
+     import axios from "axios";
+
+     const cartApiInstance = axios.create({
+         baseURL: "/api/cart",
+         withCredentials: true
+      })
+       
+      export const createCartOrder = async()=>{
+        const response = await cartApiInstance.post("/payment/create/order")
+         return response.data
+       }
+
+
+step2-
+
+    import  {createCartOrder } from "../service/cart.api.js"
+    import {useDispatch} from  "react-redux"
+
+    export const useCart = () => {
+    const dispatch = useDispatch()
+
+    
+    async function handleCreateCartOrder(){
+        const data = await createCartOrder()
+        return data.order
+    }   
+
+    return {handleAddItem, handleGetCart, handleIncrementCartItemApi, handleCreateCartOrder }
+}
+
+
+
+    
