@@ -51,14 +51,11 @@ const razorpay = new Razorpay({
 
 export const createOrder = async ({amount, currecy="INR"}) => {
     const options = {
-// razorpay takes the currency smallest unit
-
         amount: amount * 100,//amount * 100 => 1INR * 100 = 100paisa
         currency,
     }
     const order = await razorpay.orders.create(options)
-
-    return order
+return order
 }
 
 
@@ -70,8 +67,7 @@ import {createOrder} from "../services/payment.service.js";
 
 export const createOrderController = async (req,res) =>{
     const order = await createOrder({amount : 1000, currency: "INR"})
-
-    return res.status(200).json({
+   return res.status(200).json({
         message: "Order created successfully",
         success: true,
         order
