@@ -150,3 +150,5 @@ Frontend > features > cart > pages > Cart.jsx
        return (
         <>
         <button  onClick={handleCheckout}>  Proceed to Checkout </button>
+        </>
+        )
