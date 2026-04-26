@@ -74,3 +74,12 @@ controller.js
             order
        })
     }
+
+  step6 - 
+  API - if we are doing payment for cart items 
+  
+     import { authenticateUser } from '../middlewares/auth.middleware.js';
+     import { createOrderController} from '../controllers/cart.controller.js';
+     
+     const router = express.Router();
+     router.post("/payment/create/order", authenticateUser, createOrderController)
