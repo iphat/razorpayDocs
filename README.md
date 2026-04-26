@@ -121,8 +121,32 @@ step2-
     }   
 
     return {handleAddItem, handleGetCart, handleIncrementCartItemApi, handleCreateCartOrder }
-}
+    }
 
 
+step3-
 
+    npm i react-razorpay
+
+step4- 
+Frontend > features > cart > pages > Cart.jsx
+
+    import { useCart } from '../hook/useCart'
+    import { Link, useNavigate } from 'react-router'
+    import { useRazorpay, RazorpayOrderOptions } from "react-razorpay";
+
+    const Cart = () => {
+    const cart = useSelector(state => state.cart)
+    const { handleCreateCartOrder } = useCart()
+    const navigate = useNavigate()
     
+        // razorpay integration
+        
+    async function handleCheckout(){
+        const order = await handleCreateCartOrder()
+        console.log("order is here", order)  
+    }
+
+       return (
+        <>
+        <button  onClick={handleCheckout}>  Proceed to Checkout </button>
