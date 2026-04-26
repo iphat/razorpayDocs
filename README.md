@@ -5,7 +5,8 @@
 BACKEND 
 
 step1 -
-npm i razorpay
+         
+    npm i razorpay
 
 step2-
 
