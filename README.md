@@ -11,9 +11,8 @@ step1 -
 step2-
 prototype credentials
 
-    RAZORPAY_KEY_ID=test_123ejkwfsnmkl
-    RAZORPAY_KEY_SECRET=test_secret_kkknkkml
-
+    RAZORPAY_KEY_ID="razorpay id "
+    RAZORPAY_KEY_SECRET="razorpay secret"
 copy these two credentials from razorpay
 
 step3-
