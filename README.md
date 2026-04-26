@@ -139,12 +139,54 @@ Frontend > features > cart > pages > Cart.jsx
     const cart = useSelector(state => state.cart)
     const { handleCreateCartOrder } = useCart()
     const navigate = useNavigate()
+    // this hook is used to load the Razorpay script and manage the loading state and errors.
+    const { error, isLoading, Razorpay } = useRazorpay();
+    const user = useSelector(state => state.user)
     
         // razorpay integration
         
-    async function handleCheckout(){
-        const order = await handleCreateCartOrder()
-        console.log("order is here", order)  
+        // razorpay integration
+    async function handleCheckout() {
+        try {
+            const order = await handleCreateCartOrder()
+            if (!order) {
+                console.error("Failed to create order")
+                return
+            }
+            console.log("order is here", order)
+
+            if (!Razorpay) {
+                console.error("Razorpay is not loaded yet")
+                return
+            }
+
+            // react-razorpay 
+            const options = {
+                key: "rzp_test_Si7S8lnLlFIivK",
+                amount: order.amount, // Amount in paise
+                currency: order.currency,
+                name: "Snitch",
+                description: "Test Transaction",
+                order_id: order.id, // Generate order_id on server
+                handler: (response) => {
+                    console.log(response);
+                    alert("Payment Successful!");
+                },
+                prefill: {
+                    name: user?.fullname,
+                    email: user?.email,
+                    contact: user?.contact,
+                },
+                theme: {
+                    color: tokens.primary,
+                },
+            };
+
+            const razorpayInstance = new Razorpay(options);
+            razorpayInstance.open();
+        } catch (err) {
+            console.error("Checkout error:", err)
+        }
     }
 
        return (
