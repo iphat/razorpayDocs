@@ -20,8 +20,8 @@ if not throw a custom err
 
 config.js
 
-import dotenv from "dotenv"
-dotenv.config()
+  import dotenv from "dotenv"
+   dotenv.config()
 
 if(!process.env.RAZORPAY_KEY_ID){
     throw new error ("RAZORPAY_KEY_ID is not defined in your environment variables")
