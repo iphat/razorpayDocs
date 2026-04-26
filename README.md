@@ -1,6 +1,5 @@
 # razorpayDocs
-
-# razorpayDocs
+ # Whole code is wiped out from a website(snitch)  code so may be some part is according to the website requirement
 
 BACKEND 
 
@@ -89,6 +88,9 @@ controller.js
 
 
  FRONTEND -
+ step0-
+ src > features > cart > state > cart.slice.js
+ create a reducer first 
 
  step1-
  Frontend > src > cart > state > cart.api.js
